@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 from opusTomes.models import BaseModel
-from fpdf import FPDF
+# from fpdf import FPDF
 
 
 class Book(BaseModel):

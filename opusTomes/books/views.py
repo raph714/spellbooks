@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 
 from .models import Book, DNDPage, SRDPage
 from .forms import BookCreateForm, DNDPageCreateForm, SRDSelectForm
-from fpdf import FPDF
+# from fpdf import FPDF
 import os
 
 # Create your views here.
@@ -207,15 +207,15 @@ def generate_pdf(request, book_id):
     if book.owner != request.user:
         raise Http404("Book does not exist")
 
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    fallingSkyPath = os.path.join(BASE_DIR, 'fonts/theano/TheanoDidot-Regular.ttf')
+    # BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # fallingSkyPath = os.path.join(BASE_DIR, 'fonts/theano/TheanoDidot-Regular.ttf')
 
-    pdf = FPDF(orientation = 'P', unit = 'mm', format='Letter')
-    pdf.add_font('theano', '', fallingSkyPath, uni=True)
+    # pdf = FPDF(orientation = 'P', unit = 'mm', format='Letter')
+    # pdf.add_font('theano', '', fallingSkyPath, uni=True)
 
-    for page in book.pages.all().order_by('order'):
-        page.add_page_to_pdf(pdf)
+    # for page in book.pages.all().order_by('order'):
+    #     page.add_page_to_pdf(pdf)
 
-    pdf.output('tuto1.pdf', 'F')
+    # pdf.output('tuto1.pdf', 'F')
 
     return HttpResponseRedirect(reverse('book_detail', args=[book_id]))

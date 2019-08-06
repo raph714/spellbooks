@@ -25,7 +25,7 @@ SECRET_KEY = 'lgd15%y&xppwz9tduz6^9_zp&whvxz*ewkyd_&$^*tmxa28hu3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.opustomes.com']
 
 
 # Application definition

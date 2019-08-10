@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'orders.apps.OrdersConfig',
     'books.apps.BooksConfig',
     'accounts.apps.AccountsConfig',
-    'opusTomes'
+    'opusTomes',
+    'crispy_forms'
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 # Static files (CSS, JavaScript, Images)

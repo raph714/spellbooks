@@ -12,7 +12,7 @@ class BookCreateForm(ModelForm):
 class DNDPageCreateForm(ModelForm):
     class Meta:
         model = DNDPage
-        fields = ('title', 'sub_title', 'casting_time', 'casting_range', 'components', 'duration', 'description')
+        fields = ('title', 'description')
 
 
 class SRDSelectForm(forms.Form):

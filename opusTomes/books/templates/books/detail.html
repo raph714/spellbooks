@@ -2,18 +2,34 @@
 
 {% block title %}{{book.title}}{% endblock %}
 
+{% block header %}
+{{ book.title }}
+{% endblock %}
+
 {% block content %}
-{{ book.title }} <a href="{% url 'book_edit' book.id %}">edit</a>
+<a href="{% url 'book_edit' book.id %}">Edit</a>
 <br>
 <br>
-Spells:
-<hr>
-<br>
-{% for page in pages.all %}
-	<a href="{% url 'dnd_page_edit' page.id %}">{{page.title}}</a> <a href="{% url 'dnd_page_order_up' page.id %}">up</a> <a href="{% url 'dnd_page_order_down' page.id %}">down</a><br>
-{% endfor %}
+
+<table class="table table-striped">
+	<tbody>
+		{% for page in pages.all %}
+			<tr>
+				<td>
+					<a href="{% url 'dnd_page_edit' page.id %}">{{page.title}}</a>
+				</td>
+				<td>
+					<a href="{% url 'dnd_page_order_up' page.id %}">Move Up</a>
+				</td>
+				<td>
+					<a href="{% url 'dnd_page_order_down' page.id %}">Move Down</a>
+				</td>
+			</tr>
+	    {% endfor %}
+	</tbody>
+</table>
+
+<a href="{% url 'dnd_page_create' book.id %}" class="btn btn-dark">Add a page</a>
 <br><br>
-<a href="{% url 'dnd_page_create' book.id %}">Add a page</a>
-<a href="{% url 'srd_page_select' book.id %}">Add some SRD spells</a>
-<a href="{% url 'book_generate_pdf' book.id %}">Generate PDF</a>
+<a href="{% url 'book_generate_pdf' book.id %}" class="btn btn-success">Purchase</a>
 {% endblock %}

@@ -2,11 +2,16 @@
 
 {% block title %}{{book.title}}{% endblock %}
 
-{% block content %}
+{% load crispy_forms_tags %}
+
+{% block header %}
 Add a page to {{book.title}}
+{% endblock %}
+
+{% block content %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-dark">Save</button>
   </form>
 {% endblock %}

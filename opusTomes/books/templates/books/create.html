@@ -1,10 +1,15 @@
 {% extends 'base.html' %}
 
+{% load crispy_forms_tags %}
+
+{% block header %}
+Create a Book
+{% endblock %}
+
 {% block content %}
-  <h2>Create a Book</h2>
   <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-dark">Save</button>
   </form>
 {% endblock %}

@@ -3,18 +3,29 @@
 
 {% block title %}My Books{% endblock %}
 
+{% block header %}
+My Books
+{% endblock %}
+
 {% block content %}
+<a href="{% url 'book_create' %}" class="btn btn-dark">New Book</a>
+
+<br><br>
 
 {% if books %}
-    <ul>
-    {% for book in books %}
-        <li><a href="{% url 'book_detail' book.id %}">{{ book.title }}</a> <a href="{% url 'book_edit' book.id %}">edit</a></li>
-    {% endfor %}
-    </ul>
+<table class="table table-striped">
+	<tbody>
+		{% for book in books %}
+			<tr>
+				<td>
+					<a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+				</td>
+			</tr>
+	    {% endfor %}
+	</tbody>
+</table>
 {% else %}
     <p>No books are available.</p>
 {% endif %}
-
-<a href="{% url 'book_create' %}">Make one!</a>
 
 {% endblock %}
